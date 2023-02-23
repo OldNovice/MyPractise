@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MyPractise"
 include ':app'
+include ':MyService'
