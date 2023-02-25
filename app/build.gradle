@@ -26,17 +26,18 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    sourceSets {
-        main {
-            res.srcDirs = [
-                    'src/main/res/layout/activity',
-                    'src/main/res/layout/fragment',
-                    'src/main/res/layout/item',
-                    'src/main/res/layout',
-                    'src/main/res'
-            ]
-        }
-    }
+//    sourceSets {
+//        main {
+//            res.srcDirs = [
+//                    'src/main/res',
+//                    //'src/main/res/layout/activity',
+//                    //'src/main/res/layout/fragment',
+//                    //'src/main/res/layout/item',
+//                    'src/main/res/layout',
+//
+//            ]
+//        }
+//    }
 }
 
 dependencies {
@@ -57,4 +58,6 @@ dependencies {
     implementation 'io.github.scwang90:refresh-header-two-level:2.0.5'   //二级刷新头
     implementation 'io.github.scwang90:refresh-footer-ball:2.0.5'        //球脉冲加载
     implementation 'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+    //圆形图片格式
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

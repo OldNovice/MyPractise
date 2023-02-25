@@ -56,6 +56,11 @@ public class RecyclerActivity extends BaseActivity3 {
     }
 
     @Override
+    protected void initClickEvent() {
+
+    }
+
+    @Override
     public void onClicks(View v) {
 
     }
