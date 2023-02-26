@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="12123123"
+        android:text="@string/nav_personal_signature"
         android:textColor="@color/black"
         android:textSize="20sp"/>
 
@@ -24,7 +24,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_above="@+id/text_1"
-       android:text="12123123"
+       android:text="@string/nav_view_name"
        android:textColor="@color/black"
        android:textSize="20sp"/>
 </RelativeLayout>

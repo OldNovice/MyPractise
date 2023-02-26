@@ -1,7 +1,16 @@
 package com.winfo.mypractise.baseclass;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +26,6 @@ public abstract class BaseActivity3 extends AppCompatActivity implements View.On
         setContentView(intiLayout());
         initView();
         initData();
-        initClickEvent();
     }
     /**初始化布局*/
     protected abstract int intiLayout();
@@ -25,8 +33,6 @@ public abstract class BaseActivity3 extends AppCompatActivity implements View.On
     protected abstract void initView();
     /**初始化数据*/
     protected abstract void initData();
-    /**处理点击setXXX*/
-    protected abstract void  initClickEvent();
 
     /**
      * 防止多次点击
