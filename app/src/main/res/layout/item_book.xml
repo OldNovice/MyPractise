@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="4dp"
-    android:padding="5dp">
-
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="#f1f1f1"
+    app:cardUseCompatPadding="true"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:clickable="true"
+    app:cardElevation="5dp"
+    app:rippleColor="#A8C0EC"
+    app:state_dragged="true"
+    android:focusable="true">
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="15dp">
 
         <ImageView
             android:id="@+id/item_bookName"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round" />
@@ -23,9 +31,10 @@
             android:id="@+id/item_bookPages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
+            android:layout_gravity="center"
             android:text="123"
             android:textSize="16sp" />
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

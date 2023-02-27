@@ -10,8 +10,11 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
         <!-- Customize your theme here. -->
+<!--        <item name="android:windowTranslucentNavigation">false</item>-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
 
     <style name="Theme.MyPractise.AppBarOverlay" />
@@ -20,7 +23,22 @@
         parent="Theme.AppCompat.DayNight"/>
 
     <style name="CollapsingTheme" parent="Theme.MyPractise">
+        <!--窗口半透明导航-->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!--窗口半透明状态-->
+        <item name="android:windowTranslucentStatus">true</item>
         <!--状态栏颜色指定为透明-->
         <item name="android:statusBarColor">@android:color/transparent</item>
+<!--        &lt;!&ndash; Android 6.0以上 状态栏字色和图标为浅黑色&ndash;&gt;-->
+<!--        <item name="android:windowLightStatusBar">false</item>-->
     </style>
+    <!--DIY环形进度条-->
+    <declare-styleable name="AttendanceProgressBar">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
 </resources>

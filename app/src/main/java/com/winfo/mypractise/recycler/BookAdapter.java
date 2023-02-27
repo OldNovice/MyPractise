@@ -24,29 +24,38 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
 
     private Context context;
     private List<Book> bookList;
+    private OnItemClickListener mOnItemClickListener;
 
-    public BookAdapter(List<Book> bookList) {
+    public BookAdapter(Context context) {
+        this.context = context;
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
         notifyDataSetChanged();
     }
 
-     static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         ImageView bookName;
-        TextView bookPages;
+        TextView bookPages,delete;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView= (CardView) itemView;
             bookName = itemView.findViewById(R.id.item_bookName);
-            bookPages=itemView.findViewById(R.id.item_bookPages);
+            bookPages = itemView.findViewById(R.id.item_bookPages);
+            //delete=itemView.findViewById(R.id.delete);
         }
     }
+
     @NonNull
     @Override
     @SuppressLint("InflateParams")
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (context == null) {
-            context=parent.getContext();
+            context = parent.getContext();
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.item_book, null);
         return new MyViewHolder(inflate);
@@ -55,9 +64,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Book book=bookList.get(position);
+        Book book = bookList.get(position);
         Glide.with(context).load(book.getName()).into(holder.bookName);
         holder.bookPages.setText(book.getPages());
+//        holder.delete.setOnClickListener(v -> {
+//            if (mOnItemClickListener != null) {
+//                mOnItemClickListener.onItemClick(v, position);
+//            }
+//        });
     }
 
     @Override
@@ -65,5 +79,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         return bookList.size();
     }
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
+    }
 
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.winfo.mypractise.baseclass;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -23,16 +25,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     //获取TAG的activity名称
     protected final String TAG = this.getClass().getSimpleName();
-    //是否显示标题栏
-    private boolean isShowTitle = true;
-    //是否显示状态栏
-    private boolean isShowStatusBar = true;
     //是否允许旋转屏幕
     private boolean isAllowScreenRotation = true;
     //封装Toast对象
     private static Toast toast;
     public Context context;
-
+    //private ImmersionBar mImmersionBar;
     //static 代码段可以防止内存泄露
     static {
         //设置全局的Header构建器
@@ -53,21 +51,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         context = this;
         //activity管理
         ActivityCollector.addActivity(this);
-
-
-
-//        if (!isShowTitle) {
-//            requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        }
-//
-//        if (isShowStatusBar) {
-//            getWindow().setFlags(
-//                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                    WindowManager.LayoutParams.FLAG_FULLSCREEN
-//            );
-//        }
-
-        //设置布局
         setContentView(initLayout());
         //设置屏幕是否可旋转
         if (!isAllowScreenRotation) { setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); }
@@ -77,6 +60,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         //设置数据
         initData();
         Business();
+//        mImmersionBar = ImmersionBar.with(this);
+//        mImmersionBar.init();   //所有子类都将继承这些相同的属性
     }
 
     /**
@@ -113,24 +98,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         return (T) findViewById(id);
     }
 
-
-    /**
-     * 设置是否显示标题栏
-     *
-     * @param showTitle true or false
-     */
-    public void setShowTitle(boolean showTitle) {
-        isShowTitle = showTitle;
-    }
-
-    /**
-     * 设置是否显示状态栏
-     *
-     * @param showStatusBar true or false
-     */
-    public void setShowStatusBar(boolean showStatusBar) {
-        isShowStatusBar = showStatusBar;
-    }
 
     /**
      * 是否允许屏幕旋转
@@ -223,5 +190,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onDestroy();
         //activity管理
         ActivityCollector.removeActivity(this);
+        //不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
+        //mImmersionBar.destroy(this,new Dialog(this),true);
     }
 }

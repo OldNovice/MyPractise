@@ -10,10 +10,20 @@
         android:id="@+id/delete"
         android:icon="@drawable/ic_delete_24"
         android:title="@string/delete"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings_24"
         android:title="@string/settings"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/scan"
+        android:icon="@drawable/ic_scan_10"
+        android:title="@string/str_scan"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/qr_code"
+        android:icon="@drawable/ic_qr_code_24"
+        android:title="@string/str_qr_code"
+        app:showAsAction="never" />
 </menu>

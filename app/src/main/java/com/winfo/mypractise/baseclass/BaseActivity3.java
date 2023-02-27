@@ -1,16 +1,7 @@
 package com.winfo.mypractise.baseclass;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,5 +38,12 @@ public abstract class BaseActivity3 extends AppCompatActivity implements View.On
         }
         //下面写点击事件逻辑
         onClicks(v);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //activity管理
+        ActivityCollector.removeActivity(this);
     }
 }
