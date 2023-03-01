@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_hide_home_24"
+        android:title="首页" />
+
+    <item
+        android:id="@+id/video"
+        android:icon="@drawable/ic_hide_play_24"
+        android:title="视频" />
+    <item
+        android:id="@+id/film"
+        android:icon="@drawable/ic_hide_video_24"
+        android:title="放映厅" />
+    <item
+        android:id="@+id/user_center"
+        android:icon="@drawable/ic_user_24"
+        android:title="个人中心" />
+</menu>

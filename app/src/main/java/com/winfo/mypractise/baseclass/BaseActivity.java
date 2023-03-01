@@ -30,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     //封装Toast对象
     private static Toast toast;
     public Context context;
-    //private ImmersionBar mImmersionBar;
+
     //static 代码段可以防止内存泄露
     static {
         //设置全局的Header构建器
@@ -52,16 +52,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         //activity管理
         ActivityCollector.addActivity(this);
         setContentView(initLayout());
-        //设置屏幕是否可旋转
+        //设置屏幕是否可旋转---ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         if (!isAllowScreenRotation) { setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); }
-        else { setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); }
+        else { setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED); }
         //初始化控件
         initView();
         //设置数据
         initData();
         Business();
-//        mImmersionBar = ImmersionBar.with(this);
-//        mImmersionBar.init();   //所有子类都将继承这些相同的属性
+        //初始化所有子类都将继承这些相同的属性
+        ImmersionBar.with(this).init();
+       // pushActivity();
     }
 
     /**
@@ -191,6 +192,21 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         //activity管理
         ActivityCollector.removeActivity(this);
         //不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
-        //mImmersionBar.destroy(this,new Dialog(this),true);
+        ImmersionBar.destroy(this,new Dialog(this),true);
+    }
+    /**
+     * 跳转页面动画
+     */
+    public void pushActivity() {
+        overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
+    }
+
+    /**
+     * 结束统一动画
+     */
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_right_out);
     }
 }

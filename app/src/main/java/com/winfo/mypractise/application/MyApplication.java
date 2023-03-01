@@ -22,11 +22,11 @@ public class MyApplication extends Application {
         context = getApplicationContext();
     }
 
-    private static Application getInstance() {
+    public static MyApplication getInstance() {
         return myApplication;
     }
 
-    private static Context getContext() {
+    public static Context getContext() {
         return context;
     }
 }

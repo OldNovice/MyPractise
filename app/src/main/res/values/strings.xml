@@ -14,9 +14,16 @@
     <string name="nav_personal_signature">个性签名</string>
     <string name="str_recycle">超级列表</string>
     <string name="str_drawer">抽屉布局</string>
+    <string name="str_snackBar">底部提示</string>
     <string name="str_email">邮箱</string>
     <string name="str_circular_progress_bar">环形进度条</string>
     <string name="str_chart">图表</string>
     <string name="str_scan">扫一扫</string>
     <string name="str_qr_code">二维码</string>
+    <string name="title_activity_nav">NavActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="str_titleBar">标题栏</string>
+    <string name="str_drop_down">显示pop</string>
 </resources>

@@ -19,13 +19,13 @@ import com.winfo.mypractise.javabean.Book;
 
 import java.util.List;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> {
+public class Book2Adapter extends RecyclerView.Adapter<Book2Adapter.MyViewHolder> {
 
     private Context context;
     private List<Book> bookList;
     private OnItemClickListener mOnItemClickListener;
 
-    public BookAdapter(Context context) {
+    public Book2Adapter(Context context) {
         this.context = context;
     }
 
@@ -36,15 +36,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
         ImageView bookName;
-        TextView bookPages;
+        TextView bookPages,delete;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView= (CardView) itemView;
             bookName = itemView.findViewById(R.id.item_bookName);
             bookPages = itemView.findViewById(R.id.item_bookPages);
+            delete=itemView.findViewById(R.id.delete);
         }
     }
 
@@ -55,7 +54,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         if (context == null) {
             context = parent.getContext();
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.item_book, null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.item_book2, null);
         return new MyViewHolder(inflate);
     }
 
@@ -65,6 +64,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         Book book = bookList.get(position);
         Glide.with(context).load(book.getName()).into(holder.bookName);
         holder.bookPages.setText(book.getPages());
+        holder.delete.setOnClickListener(v -> {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemClick(v, position);
+            }
+        });
     }
 
     @Override
@@ -78,5 +82,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
+
     }
 }

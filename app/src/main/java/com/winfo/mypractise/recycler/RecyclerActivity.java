@@ -66,25 +66,13 @@ public class RecyclerActivity extends BaseActivity3 {
     /**没有删除键----对应布局文件：activity_recycler*/
     private void initRecyclerView() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
         bookAdapter = new BookAdapter(this);
         bookAdapter.setBookList(bookLists);
         recyclerView.setAdapter(bookAdapter);
     }
-    /**有删除键----对应布局文件：activity_recycler2*/
-    @SuppressLint("NotifyDataSetChanged")
-    private void initSlideRecyclerView() {
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        slideRecyclerView.setLayoutManager(linearLayoutManager);
-        bookAdapter = new BookAdapter(this);
-        bookAdapter.setBookList(bookLists);
-        slideRecyclerView.setAdapter(bookAdapter);
-        bookAdapter.setOnItemClickListener((view, position) -> {
-            bookLists.remove(position);
-            bookAdapter.notifyDataSetChanged();
-        });
-    }
+
 
     private void initBooks() {
         bookLists.clear();
