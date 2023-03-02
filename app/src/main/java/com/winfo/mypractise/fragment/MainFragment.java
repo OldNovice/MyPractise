@@ -23,13 +23,14 @@ import com.winfo.mypractise.R;
 import com.winfo.mypractise.baseclass.BaseFragment;
 import com.winfo.mypractise.recycler.RecyclerActivity;
 import com.winfo.mypractise.ui.ChartActivity;
+import com.winfo.mypractise.ui.WebActivity;
 
 public class MainFragment extends BaseFragment {
-    private Button recycleLayout, snackBar, chartLayout;
+
     private DrawerLayout drawerLayout;
     private PopupWindow popupWindow;
     private ImageView menuDrawer,popLayout;
-
+    private Button recycleLayout, snackBar, chartLayout,webLayout;
     @Override
     protected int initLayout() {
         return R.layout.fragment_main;
@@ -39,9 +40,11 @@ public class MainFragment extends BaseFragment {
     protected void initView(View view) {
         recycleLayout = view.findViewById(R.id.recycle_layout);
         snackBar = view.findViewById(R.id.snack_bar);
-        chartLayout = view.findViewById(R.id.chart_layout);
         popLayout = view.findViewById(R.id.title_menu);
         drawerLayout = view.findViewById(R.id.main_drawer);
+        chartLayout = view.findViewById(R.id.chart_layout);
+        webLayout= view.findViewById(R.id.web_layout);
+
 
         menuDrawer=view.findViewById(R.id.title_drawer);
         TextView textView=view.findViewById(R.id.title_text);
@@ -55,6 +58,7 @@ public class MainFragment extends BaseFragment {
         chartLayout.setOnClickListener(this);
         popLayout.setOnClickListener(this);
         menuDrawer.setOnClickListener(this);
+        webLayout.setOnClickListener(this);
     }
 
     /**
@@ -113,6 +117,10 @@ public class MainFragment extends BaseFragment {
             case R.id.title_drawer://抽屉
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
+            case R.id.web_layout://列表布局
+                startActivity(new Intent(requireContext(), WebActivity.class));
+                break;
+
         }
     }
 }

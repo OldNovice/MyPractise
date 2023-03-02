@@ -26,4 +26,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="str_titleBar">标题栏</string>
     <string name="str_drop_down">显示pop</string>
+    <string name="str_web">网页</string>
 </resources>
