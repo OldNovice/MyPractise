@@ -83,13 +83,6 @@ public class MainActivity extends BaseActivity {
         transaction.hide(fragment);
         transaction.commitAllowingStateLoss();
     }
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    protected void Business() {
-    }
 
     @Override
     public void onClick(View v) {

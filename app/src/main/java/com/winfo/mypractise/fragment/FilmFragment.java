@@ -45,11 +45,8 @@ public class FilmFragment extends BaseFragment {
         textView.setText("放映厅");
         List<Fragment> viewList = new ArrayList<>();
         String[] tabName = {"推荐", "电影", "电视剧", "少儿", "纪录片", "综艺", "动漫"};
-
         //绑定--添加到集合中
         viewList.add(new RecommendFragment());
-        viewList.add(new RecommendFragment());
-
         //组装
         ViewPageAdapter myAdapter = new ViewPageAdapter(requireFragmentManager(), viewList, Arrays.asList(tabName));
         viewPager.setAdapter(myAdapter);

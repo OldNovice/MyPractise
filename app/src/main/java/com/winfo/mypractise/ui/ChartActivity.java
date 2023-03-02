@@ -1,16 +1,14 @@
 package com.winfo.mypractise.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.view.View;
 
 import com.winfo.mypractise.R;
-import com.winfo.mypractise.baseclass.BaseActivity;
 import com.winfo.mypractise.baseclass.BaseActivity3;
+import com.winfo.mypractise.diyview.AttendanceProgressBar;
 
 public class ChartActivity extends BaseActivity3 {
 
+    AttendanceProgressBar progressBar;
     @Override
     protected int intiLayout() {
         return R.layout.activity_chart;
@@ -18,7 +16,9 @@ public class ChartActivity extends BaseActivity3 {
 
     @Override
     protected void initView() {
-
+        progressBar = findViewById(R.id.apb);
+        //进度条
+        progressBar.setProgress(10 ,18);
     }
 
     @Override

@@ -57,9 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         else { setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED); }
         //初始化控件
         initView();
-        //设置数据
-        initData();
-        Business();
+
         //初始化所有子类都将继承这些相同的属性
         ImmersionBar.with(this).init();
        // pushActivity();
@@ -80,12 +78,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 设置数据
      */
-    protected abstract void initData();
+  //  protected abstract void initData();
 
     /**
      * 业务逻辑
      */
-    protected abstract void Business();
+    //protected abstract void Business();
 
     /**
      * 省去转换

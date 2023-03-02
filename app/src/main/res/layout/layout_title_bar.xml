@@ -3,20 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="112dp"
+    android:layout_centerInParent="true"
     android:background="@mipmap/wm_1">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_centerInParent="true"
+        android:background="@color/red" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:elevation="5dp"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/title_drawer"
-            android:layout_width="0dp"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+
             android:contentDescription="@string/str_drawer"
             app:srcCompat="@mipmap/menu" />
 
@@ -32,9 +39,8 @@
 
         <ImageView
             android:id="@+id/title_menu"
-            android:layout_width="0dp"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:contentDescription="@string/str_drop_down"
             app:srcCompat="@drawable/ic_circle_drop_down" />
 

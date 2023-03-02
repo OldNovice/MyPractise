@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import com.winfo.mypractise.R;
 
+import java.text.DecimalFormat;
+
 
 public class AttendanceProgressBar extends View {
     // 画圆环底部的画笔
@@ -106,27 +108,39 @@ public class AttendanceProgressBar extends View {
         mYCenter = getHeight() / 2;
 
         //        canvas.drawCircle(mXCenter, mYCenter, mRadius, mCirclePaint);
-
+        float f = ((float) mProgress / mTotalProgress);
         canvas.drawCircle(mXCenter, mYCenter, mRingRadius, mCirclePaint);
         RectF oval = new RectF();
         oval.left = (mXCenter - mRingRadius);
         oval.top = (mYCenter - mRingRadius);
         oval.right = mRingRadius * 2 + (mXCenter - mRingRadius);
         oval.bottom = mRingRadius * 2 + (mYCenter - mRingRadius);
-        canvas.drawArc(oval, -90, ((float) mProgress / mTotalProgress) * 360, false, mRingPaint); //
-        //                        canvas.drawCircle(mXCenter, mYCenter, mRadius + mStrokeWidth / 2, mRingPaint);
-        //            String txt = mProgress + "%";
-        String txt = "16/18";
+        canvas.drawArc(oval, -90, f * 360, false, mRingPaint); //
+        // canvas.drawCircle(mXCenter, mYCenter, mRadius + mStrokeWidth / 2, mRingPaint);
+        String txt =Float.parseFloat(txf(mProgress,mTotalProgress)) *100+ "%";
         mTxtWidth = mTextPaint.measureText(txt, 0, txt.length());
-        //            canvas.drawText(txt, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4, mTextPaint);
+        canvas.drawText(txt, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4 - dipToPx(30), mTextPaint);
+        txt = "出勤率";
+        mTxtWidth = mTextPaint.measureText(txt, 0, txt.length());
         canvas.drawText(txt, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4 - dipToPx(10), mTextPaint);
-        txt = "出勤人数";
+        txt = mProgress + "/" + mTotalProgress;
         mTxtWidth = mTextPaint.measureText(txt, 0, txt.length());
         canvas.drawText(txt, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4 + dipToPx(10), mTextPaint);
+        txt = "出勤人数";
+        mTxtWidth = mTextPaint.measureText(txt, 0, txt.length());
+        canvas.drawText(txt, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4 + dipToPx(30), mTextPaint);
     }
+    public static String txf(int a,int b) {
+        // TODO 自动生成的方法存根
 
-    public void setProgress(int progress) {
+        DecimalFormat df=new DecimalFormat("0.00");//设置保留位数
+
+        return df.format((float)a/b);
+
+    }
+    public void setProgress(int progress,int totalProgress) {
         mProgress = progress;
+        mTotalProgress=totalProgress;
         postInvalidate();
     }
 
