@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="123"
+        android:hint="@string/title_home"
+        android:inputType="number"
+        android:layout_marginTop="56dp"/>
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="123"
+        android:hint="@string/title_home"
+        android:inputType="number"
+        tools:ignore="TextFields" />
+
+    <Button
+        android:id="@+id/out_save"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="保存" />
+
+    <Button
+        android:id="@+id/out_black"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="清空" />
+
+    <Button
+        android:id="@+id/get_user_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="获取账号/密码" />
+
+    <Button
+        android:id="@+id/get_remove"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="移除密码" />
+
+    <TextView
+        android:id="@+id/out_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+</LinearLayout>

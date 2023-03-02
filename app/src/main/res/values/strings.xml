@@ -27,4 +27,5 @@
     <string name="str_titleBar">标题栏</string>
     <string name="str_drop_down">显示pop</string>
     <string name="str_web">网页</string>
+    <string name="str_sp">数据存储SP</string>
 </resources>

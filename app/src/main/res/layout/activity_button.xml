@@ -28,5 +28,10 @@
         android:layout_columnSpan="1"
         style="?android:attr/buttonBarButtonStyle"
         android:text="@string/str_web" />
+    <Button
+        android:id="@+id/sp_layout"
+        android:layout_columnSpan="1"
+        style="?android:attr/buttonBarButtonStyle"
+        android:text="@string/str_sp" />
 
 </GridLayout>

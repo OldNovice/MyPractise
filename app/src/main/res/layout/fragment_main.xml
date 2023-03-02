@@ -41,7 +41,7 @@
 
         <include layout="@layout/layout_title_bar"/>
 
-        <include layout="@layout/layout_button"/>
+        <include layout="@layout/activity_button"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
